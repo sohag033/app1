@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: 'https://github.com/sohag033/app1.git'
     targetRevision: HEAD
-    path: ./app
+    path: .
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
