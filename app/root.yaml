@@ -1,22 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-app
+  name: root
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: ngnix-decleare
-    server: 'https://kubernetes.default.svc'
+    server: https://kubernetes.default.svc
+    namespace: argocd
   project: default
   source:
-    repoURL: 'https://github.com/sohag033/app1.git'
+    path: app/
+    repoURL: https://github.com/sohag033/app1.git
     targetRevision: HEAD
-    path: ./nginx
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
